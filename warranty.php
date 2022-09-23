@@ -19,61 +19,9 @@ function wpf_dev_validate_warranty( $fields, $entry, $form_data ) {
     //  
     // 
     // instead of manually adding arrays
-    $warranty_code_list = array( 
-					'SP0122',
-					'SP0222',
-					'SP0322',
-					'SP0422',
-					'SP0522',
-					'SP0622',
-					'SP0722',
-					'SP0822',
-					'SP0922',
-					'SP1022',
-		            'SP1122',
-		            'SP1222',
-                    'SP1322',
-                    'SP1422',
-                    'SP1522',
-                    'SP1622',
-                    'SP1722',
-                    'SP1822',
-                    'SP1922',
-                    'SP2022',
-                    'SP2122',
-                    'SP2222',
-                    'SP2322',
-                    'SP2422',
-                    'SP2522',
-                    'SP2622',
-                    'SP2722',
-                    'SP2822',
-                    'SP2922',
-                    'SP3022',
-                    'SP3122',
-                    'SP3222',
-                    'SP3322',
-                    'SP3422',
-                    'SP3522',
-                    'SP3622',
-                    'SP3722',
-                    'SP3822',
-                    'SP3922',
-                    'SP4022',
-                    'SP4122',
-                    'SP4222',
-                    'SP4322',
-                    'SP4422',
-                    'SP4522',
-                    'SP4622',
-                    'SP4722',
-                    'SP4822',
-                    'SP4922',
-                    'SP5022'
-		
-    );
+ 
      global $wpdb;
-	$query   = $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}warranty WHERE warranty_code = '$warranty'   AND warranty_valid = '1'");
+	$query   = $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}warranty WHERE wa_code = '$warranty'   AND warranty_valid = '1'");
 	$results = $wpdb->get_results( $query );
 
 if ( count( $results ) == 0 )  {
@@ -81,7 +29,7 @@ if ( count( $results ) == 0 )  {
 	}
 else{
 		
-		$wpdb->query( $wpdb->prepare("UPDATE  {$wpdb->prefix}warranty SET  warranty_valid = '0'  WHERE warranty_code = '$warranty' ")  );
+		$wpdb->query( $wpdb->prepare("UPDATE  {$wpdb->prefix}warranty SET  warranty_valid = '0'  WHERE wa_code = '$warranty' ")  );
    
 
     
